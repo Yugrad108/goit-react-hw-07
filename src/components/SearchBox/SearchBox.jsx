@@ -3,11 +3,10 @@ import { wrapper, input } from "./SearchBox.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilter, selectNameFilter } from "../../redux/filtersSlice";
 
-// Компонент для пошуку контактів
 const SearchBox = () => {
-  const filterId = useId(); // Створення унікального ID для елемента input
-  const value = useSelector(selectNameFilter); // Отримання значення фільтру з Redux
-  const dispatch = useDispatch(); // Отримання функції dispatch з Redux
+  const filterId = useId();
+  const value = useSelector(selectNameFilter);
+  const dispatch = useDispatch();
 
   return (
     <div className={wrapper}>
@@ -16,7 +15,7 @@ const SearchBox = () => {
         type="text"
         id={filterId}
         value={value}
-        onChange={(e) => dispatch(changeFilter(e.target.value.trim()))} // Оновлення фільтру при зміні введення
+        onChange={(e) => dispatch(changeFilter(e.target.value.trim()))}
         className={input}
       />
     </div>

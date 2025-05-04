@@ -5,7 +5,6 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 
-// Ініціалізація кореневого компоненту React з підключенням Redux
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>

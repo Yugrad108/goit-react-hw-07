@@ -1,7 +1,6 @@
 /*************  ✨ Windsurf Command 🌟  *************/
 import css from "./ErrorMessage.module.css";
 
-// Компонент для відображення повідомлення про помилку
 const ErrorMessage = ({ error }) => {
   return (
     <div className={css.error}>

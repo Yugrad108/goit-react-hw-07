@@ -1,20 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Створення слайсу для управління фільтрами
 const slice = createSlice({
-  name: "filters", // Назва слайсу
+  name: "filters",
   initialState: {
-    name: "", // Початковий стан фільтру за іменем
+    name: "",
   },
   reducers: {
-    // Редʼюсер для зміни фільтру
     changeFilter: (state, action) => {
-      state.name = action.payload; // Зміна значення фільтру
+      state.name = action.payload;
     },
   },
 });
 
-// Селектор для вибору фільтру за іменем
 export const selectNameFilter = (state) => state.filters.name;
-export const { changeFilter } = slice.actions; // Експорт екшену для зміни фільтру
-export default slice.reducer; // Експорт редʼюсера за замовчуванням
+export const { changeFilter } = slice.actions;
+export default slice.reducer;
