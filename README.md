@@ -1,3 +1,24 @@
+# Phonebook Web
+
+Phonebook Web allows you to create contacts for your phonebook, search for the contacts you need, and delete those you no longer want.
+
+## Features:
+
+1. **Add Contacts**
+
+2. **Search Contacts by Name**
+
+3. **Delete Contacts**
+
+## Technologies:
+
+- **React** for building the interface.
+- **Redux** and **Redux** Toolkit for managing global state.
+- **mockapi.io** as a backend
+- **Formik** for handling forms.
+- **Yup** for validation.
+- **Axios** for implementing server requests
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

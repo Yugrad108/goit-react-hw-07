@@ -13,8 +13,8 @@ function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  console.log(error);
 
+  // Виконати запит для отримання контактів при монтуванні компонента
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -27,8 +27,11 @@ function App() {
         <SearchBox />
       </div>
 
+      {/* Показати індикатор завантаження, якщо дані завантажуються і немає помилки */}
       {isLoading && !error && <Loader />}
+      {/* Показати повідомлення про помилку, якщо виникла помилка */}
       {error && <ErrorMessage error={error} />}
+      {/* Показати список контактів, якщо дані завантажені і немає помилки */}
       {!isLoading && !error && <ContactList />}
     </div>
   );

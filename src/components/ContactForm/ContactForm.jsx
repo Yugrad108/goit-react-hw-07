@@ -6,14 +6,18 @@ import { form, button, input, errorMessage } from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contactsOps";
 
+// початкові значення для форміки
 const initialValues = {
   id: "",
   name: "",
   number: "",
 };
+// функція для рендеру форми
 const ContactForm = () => {
+  // унікальні ідентифікатори для полів форми
   const nameFieldId = useId();
   const numberFieldId = useId();
+  // посилання на диспетчер для виклику екшен-креаторів
   const dispatch = useDispatch();
 
   const ContactFormSchema = Yup.object().shape({
@@ -29,15 +33,17 @@ const ContactForm = () => {
       .required("Required"),
   });
 
+  // Обробник подій для відправлення форми
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(addContact({ ...values, id: nanoid() }));
-    resetForm();
+    dispatch(addContact({ ...values, id: nanoid() })); // Додаємо контакт з унікальним ідентифікатором
+    resetForm(); // Скидаємо форму після відправлення
   };
+
   return (
     <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={ContactFormSchema}
+      initialValues={initialValues} // Початкові значення для форми
+      onSubmit={handleSubmit} // Функція обробки відправлення форми
+      validationSchema={ContactFormSchema} // Схема валідації для полів форми
     >
       <Form className={form}>
         <div>

@@ -2,20 +2,17 @@ import { useSelector } from "react-redux";
 import Contact from "../Contact/Contact";
 import { list, item } from "./ContactList.module.css";
 import { selectFilteredContacts } from "../../redux/contactsSelectors";
-// import { selectNameFilter } from "../../redux/filtersSlice";
 
+// Компонент списку контактів
 const ContactList = () => {
+  // Отримуємо список контактів, які пройшли фільтрацію
   const items = useSelector(selectFilteredContacts);
-  console.log(items);
-  // const filter = useSelector(selectNameFilter);
 
-  // const visibleContacts = items.filter(({ name }) =>
-  //   name.toLowerCase().includes(filter.toLowerCase())
-  // );
   return (
     <ul className={list}>
       {items.map((contact) => (
         <li key={contact.id} className={item}>
+          {/* Компонент одного контакту */}
           <Contact contact={contact} />
         </li>
       ))}
